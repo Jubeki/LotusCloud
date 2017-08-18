@@ -10,10 +10,7 @@ import org.lotuscloud.api.crypt.Crypter;
 import org.lotuscloud.api.database.DatabaseManager;
 import org.lotuscloud.api.logging.LogLevel;
 import org.lotuscloud.api.logging.Logger;
-import org.lotuscloud.api.network.Handler;
-import org.lotuscloud.api.network.Packet;
-import org.lotuscloud.api.network.PacketClient;
-import org.lotuscloud.api.network.PacketServer;
+import org.lotuscloud.api.network.*;
 import org.lotuscloud.api.packet.RegisterPacket;
 import org.lotuscloud.api.packet.RegisteredPacket;
 import org.lotuscloud.api.packet.StartServerPacket;
@@ -82,6 +79,8 @@ public class Master {
 
         client = new PacketClient(null);
         client.key = server.key;
+
+        DnsClient.update("127.0.0.1", 2038, "84.200.206.225", 25565);
 
         console.register("start", new ConsoleCommand() {
             @Override

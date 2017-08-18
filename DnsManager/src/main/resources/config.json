@@ -1,0 +1,8 @@
+{
+  "config": {
+    "cf_zone_id": "",
+    "cf_api_key": "",
+    "cf_email": "",
+    "dns_format": "$ip.public.$domain"
+  }
+}
