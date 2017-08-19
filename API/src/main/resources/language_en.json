@@ -16,5 +16,13 @@
   "login": "Login",
   "username": "Username",
   "password": "Password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "name": "Name",
+  "submit": "Submit",
+  "ram": "Memory (MB)",
+  "add": "Add",
+  "add_success": "Successfully added",
+  "add_exists": "Could not be added: Already exists!",
+  "edit_not_exists": "Could not be added: Not exists!",
+  "edit_success": "Successfully edited"
 }

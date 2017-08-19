@@ -29,4 +29,8 @@ public class HTML {
             builder.append("<li class='navbar nav-right'><a href='" + right + (right.equalsIgnoreCase(active) ? "' class='active'>" : "'>") + Master.instance.language.get(right) + "</a></li>");
         return "<ul class='navbar'><li><a href='dashboard'" + (active.equalsIgnoreCase("dashboard") ? " class='active'>LotusCloud.org</a></li>" : ">LotusCloud.org</a></li>") + builder.toString() + "</ul>";
     }
+
+    public static String redirect(String url) {
+        return "<meta http-equiv=\"refresh\" content=\"0; url=" + url + "\" />";
+    }
 }

@@ -16,5 +16,13 @@
   "login": "Anmelden",
   "username": "Benutzername",
   "password": "Passwort",
-  "logout": "Abmelden"
+  "logout": "Abmelden",
+  "name": "Name",
+  "submit": "Absenden",
+  "ram": "Arbeitsspeicher (MB)",
+  "add": "Hinzufügen",
+  "add_success": "Erfolgreich hinzugefügt",
+  "add_exists": "Konnte nicht hinzugefügt werden: Existiert bereits!",
+  "edit_not_exists": "Konnte nicht hinzugefügt werden: Existiert nicht!",
+  "edit_success": "Erfolgreich bearbeitet"
 }
