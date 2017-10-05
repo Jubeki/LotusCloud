@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.lotuscloud</groupId>
-    <artifactId>builder</artifactId>
-    <version>1.1</version>
+    <groupId>com.lheinrich</groupId>
+    <artifactId>lotuscloud-builder</artifactId>
+    <version>1.2</version>
 
     <build>
         <plugins>
@@ -36,7 +36,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>org.lotuscloud.builder.Builder</mainClass>
+                            <mainClass>com.lheinrich.lotuscloud.builder.Builder</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -73,4 +73,5 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <name>LotusCloud Builder</name>
 </project>

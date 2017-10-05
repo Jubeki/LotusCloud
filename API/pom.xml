@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.lotuscloud</groupId>
-    <artifactId>api</artifactId>
+    <groupId>com.lheinrich</groupId>
+    <artifactId>lotuscloud-api</artifactId>
     <version>1.0</version>
 
     <repositories>
@@ -95,4 +95,5 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <name>LotusCloud API</name>
 </project>
