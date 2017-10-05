@@ -12,7 +12,9 @@ import com.lheinrich.lotuscloud.api.network.PacketClient;
 import com.lheinrich.lotuscloud.api.network.PacketServer;
 import com.lheinrich.lotuscloud.api.packet.RegisterPacket;
 import com.lheinrich.lotuscloud.api.packet.RegisteredPacket;
-import com.lheinrich.lotuscloud.wrapper.handler.StartServerHandler;
+import com.lheinrich.lotuscloud.wrapper.handler.StartGameServerHandler;
+import com.lheinrich.lotuscloud.wrapper.handler.StopGameServerHandler;
+import com.lheinrich.lotuscloud.wrapper.handler.Worker;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -36,6 +38,7 @@ public class Wrapper {
     public int masterPort;
     public int bindPort;
     public Language language;
+    public Worker worker;
 
     public Wrapper() {
         instance = this;
@@ -76,7 +79,11 @@ public class Wrapper {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> server.close()));
 
-        server.registerHandler("startserver", new StartServerHandler());
+        worker = new Worker(new File("templates"), new File("tmp"));
+        
+        server.registerHandler("startgameserver", new StartGameServerHandler());
+        server.registerHandler("stopgameserver", new StopGameServerHandler());
+        
         server.acceptIP(masterHost);
 
         logger.log(language.get("wrapper_started"), LogLevel.INFO);
@@ -86,7 +93,7 @@ public class Wrapper {
         System.out.println("    __          __             ________                __\n   / /   ____  / /___  _______/ ____/ /___  __  ______/ /\n  / /   / __ \\/ __/ / / / ___/ /   / / __ \\/ / / / __  / \n / /___/ /_/ / /_/ /_/ (__  ) /___/ / /_/ / /_/ / /_/ /  \n/_____/\\____/\\__/\\__,_/____/\\____/_/\\____/\\__,_/\\__,_/\n");
 
         System.out.println("Wrapper - Copyright (c) 2017 Lennart Heinrich");
-        System.out.println("www.lheinrich.com - www.lotuscloud.org");
+        System.out.println("www.lheinrich.com");
 
         System.out.println("Licensed under the Apache License, Version 2");
 

@@ -1,4 +1,4 @@
-package org.lotuscloud.dnsmanager.main;
+package com.lheinrich.lotuscloud.dnsmanager.main;
 
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
@@ -9,8 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 /**
- * Copyright (c) 2017 Lennart Heinrich
- * www.lheinrich.com
+ * Copyright (c) 2017 Lennart Heinrich (www.lheinrich.com)
  */
 public class DnsManager {
 
@@ -54,10 +53,12 @@ public class DnsManager {
 
         new Server(2038).bind();
         new Thread(() -> {
-            while (true) try {
-                Thread.sleep(Long.MAX_VALUE);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            while (true) {
+                try {
+                    Thread.sleep(Long.MAX_VALUE);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
     }

@@ -1,4 +1,4 @@
-package org.lotuscloud.dnsmanager.main;
+package com.lheinrich.lotuscloud.dnsmanager.main;
 
 import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
@@ -11,8 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Copyright (c) 2017 Lennart Heinrich
- * www.lheinrich.com
+ * Copyright (c) 2017 Lennart Heinrich (www.lheinrich.com)
  */
 public class CloudFlareTools {
 
@@ -35,7 +34,6 @@ public class CloudFlareTools {
 
             con.setRequestProperty("Content-Type", "application/json");
 
-
             if (body != null) {
                 con.setDoOutput(true);
                 con.getOutputStream().write(body.getBytes(StandardCharsets.UTF_8));
@@ -47,7 +45,7 @@ public class CloudFlareTools {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            StringBuffer jsonString = new StringBuffer();
+            StringBuilder jsonString = new StringBuilder();
             String line;
 
             while ((line = br.readLine()) != null) {

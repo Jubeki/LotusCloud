@@ -5,14 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lheinrich</groupId>
-    <artifactId>lotuscloud-builder</artifactId>
-    <version>1.2</version>
+    <artifactId>lotuscloud-dnsmanager</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <repositories>
+        <repository>
+            <id>lheinrich</id>
+            <url>https://www.lheinrich.com/mvn/repository/public/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source/>
                     <target/>
@@ -20,7 +27,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -37,7 +43,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>com.lheinrich.lotuscloud.builder.Builder</mainClass>
+                            <mainClass>com.lheinrich.lotuscloud.dnsmanager.main.DnsManager</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -45,7 +51,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -58,7 +63,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0-M1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -71,10 +75,18 @@
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.lheinrich</groupId>
+            <artifactId>lotuscloud-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <name>LotusCloud Builder</name>
+    <name>LotusCloud DnsManager</name>
 </project>

@@ -1,9 +1,9 @@
-package org.lotuscloud.dnsmanager.main;
+package com.lheinrich.lotuscloud.dnsmanager.main;
 
-import org.lotuscloud.api.network.Packet;
-import org.lotuscloud.api.packet.DnsPacket;
-import org.lotuscloud.api.packet.OkPacket;
-import org.lotuscloud.api.packet.RegisterPacket;
+import com.lheinrich.lotuscloud.api.network.Packet;
+import com.lheinrich.lotuscloud.api.packet.DnsPacket;
+import com.lheinrich.lotuscloud.api.packet.OkPacket;
+import com.lheinrich.lotuscloud.api.packet.RegisterPacket;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,8 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Copyright (c) 2017 Lennart Heinrich
- * www.lheinrich.com
+ * Copyright (c) 2017 Lennart Heinrich (www.lheinrich.com)
  */
 public class Server {
 
@@ -62,12 +61,13 @@ public class Server {
                                 socket.close();
                             } catch (Exception ex) {
                                 ex.printStackTrace();
-                                if (!socket.isClosed())
+                                if (!socket.isClosed()) {
                                     try {
                                         socket.close();
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
+                                }
                             }
                         });
                     } catch (IOException ex) {

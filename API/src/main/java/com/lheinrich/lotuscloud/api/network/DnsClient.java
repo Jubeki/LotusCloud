@@ -12,16 +12,13 @@ import java.net.Socket;
  */
 public class DnsClient {
 
-    public static Packet update(String ip, int dnsPort) {
-        return update("api.cloudinstance.de", 2038, ip, dnsPort);
-    }
-
     public static Packet update(String host, int port, String ip, int dnsPort) {
         try {
             Socket socket = new Socket(host, port);
 
-            if (socket.isClosed())
+            if (socket.isClosed()) {
                 return new ErrorPacket("socket closed");
+            }
 
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());

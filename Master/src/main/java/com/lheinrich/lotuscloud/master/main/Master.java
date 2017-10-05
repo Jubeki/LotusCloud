@@ -15,9 +15,10 @@ import com.lheinrich.lotuscloud.api.network.Handler;
 import com.lheinrich.lotuscloud.api.network.Packet;
 import com.lheinrich.lotuscloud.api.network.PacketClient;
 import com.lheinrich.lotuscloud.api.network.PacketServer;
+import com.lheinrich.lotuscloud.api.packet.GameServerPacket;
 import com.lheinrich.lotuscloud.api.packet.RegisterPacket;
 import com.lheinrich.lotuscloud.api.packet.RegisteredPacket;
-import com.lheinrich.lotuscloud.api.packet.StartServerPacket;
+import com.lheinrich.lotuscloud.api.packet.StartGameServerPacket;
 import com.lheinrich.lotuscloud.master.web.WebServer;
 import com.lheinrich.lotuscloud.master.webhandler.Dashboard;
 import com.lheinrich.lotuscloud.master.webhandler.Groups;
@@ -53,8 +54,9 @@ public class Master {
 
         try {
             File file = new File("config.json");
-            if (!file.exists())
+            if (!file.exists()) {
                 Files.write(Paths.get("config.json"), "{}".getBytes());
+            }
             config = Json.parse(new String(Files.readAllBytes(Paths.get("config.json")), StandardCharsets.UTF_8)).asObject();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -92,7 +94,7 @@ public class Master {
         console.register("start", new ConsoleCommand() {
             @Override
             public void process(String command, String[] args) {
-                System.out.println(client.request("127.0.0.1", wrapper.get("127.0.0.1"), new StartServerPacket("test", "spigot-1.8.8.jar")));
+                System.out.println(((GameServerPacket) client.request("127.0.0.1", wrapper.get("127.0.0.1"), new StartGameServerPacket("test", 25566, 10))).getServerName());
             }
         });
 
@@ -103,7 +105,7 @@ public class Master {
         System.out.println("    __          __             ________                __\n   / /   ____  / /___  _______/ ____/ /___  __  ______/ /\n  / /   / __ \\/ __/ / / / ___/ /   / / __ \\/ / / / __  / \n / /___/ /_/ / /_/ /_/ (__  ) /___/ / /_/ / /_/ / /_/ /  \n/_____/\\____/\\__/\\__,_/____/\\____/_/\\____/\\__,_/\\__,_/\n");
 
         System.out.println("Master - Copyright (c) 2017 Lennart Heinrich");
-        System.out.println("www.lheinrich.com - www.lotuscloud.org");
+        System.out.println("www.lheinrich.com");
 
         System.out.println("Licensed under the Apache License, Version 2");
 
