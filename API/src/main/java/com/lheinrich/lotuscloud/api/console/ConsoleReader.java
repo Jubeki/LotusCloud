@@ -17,14 +17,13 @@ public class ConsoleReader {
                 String[] rawArgs = scanner.nextLine().split(" ");
 
                 if (rawArgs.length > 0 && !rawArgs[0].equals("")) {
-                    String command = rawArgs[0];
-                    String args = "";
+                    
+                    String[] args = new String[rawArgs.length-1];
+                    if(args.length > 0) 
+		                System.arraycopy(rawArgs, 1, args, 0, args.length);
 
-                    for (int i = 1; i < rawArgs.length; i++)
-                        args += rawArgs[i] + " ";
-
-                    if (commands.containsKey(command))
-                        commands.get(command).process(command, (args.equals("") ? new String[]{} : args.split(" ")));
+                    if (commands.containsKey(rawArgs[0]))
+                        commands.get(command).process(rawArgs[0], args);
                     else
                         System.out.println("Not found");
                 }
